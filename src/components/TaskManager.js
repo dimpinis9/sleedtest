@@ -1,43 +1,36 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import TaskList from "./TaskList";
+import { useSelector, useDispatch } from "react-redux";
+import { addTask, deleteTask, toggleTaskCompletion } from "../redux/taskSlice";
 import TaskForm from "./TaskForm";
+import TaskList from "./TaskList";
 
 function TaskManager() {
-  const [tasks, setTasks] = useState([]);
+  const tasks = useSelector((state) => state.tasks.items);
+  const dispatch = useDispatch();
 
-  useEffect(() => {
-    const storedTasks = localStorage.getItem("tasks");
-    if (storedTasks) {
-      setTasks(JSON.parse(storedTasks));
-    }
-  }, []);
+  console.log("Tasks from Redux store:", tasks);
 
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
-
-  const addTask = (task) => {
-    setTasks([...tasks, task]);
+  const handleAddTask = (task) => {
+    dispatch(addTask(task));
   };
 
-  const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
+  const handleDeleteTask = (id) => {
+    dispatch(deleteTask(id));
   };
 
-  const toggleTask = (id) => {
-    setTasks(
-      tasks.map((task) =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-      )
-    );
+  const handleToggleTaskCompletion = (id) => {
+    dispatch(toggleTaskCompletion(id));
   };
 
   return (
     <div>
       <h1>Task Manager</h1>
-      <TaskForm onAdd={addTask} />
-      <TaskList tasks={tasks} onDelete={deleteTask} onToggle={toggleTask} />
+      <TaskForm onAdd={handleAddTask} />
+      <TaskList
+        tasks={tasks}
+        onDelete={handleDeleteTask}
+        onToggle={handleToggleTaskCompletion}
+      />
     </div>
   );
 }
