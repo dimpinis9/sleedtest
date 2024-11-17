@@ -1,17 +1,39 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addTask, deleteTask, toggleTaskCompletion } from "../redux/taskSlice";
+import {
+  addTask,
+  deleteTask,
+  toggleTaskCompletion,
+  setTasks,
+} from "../redux/taskSlice";
 import TaskForm from "./TaskForm";
 import TaskList from "./TaskList";
+import useFetch from "../hooks/useFetch";
 
 function TaskManager() {
   const tasks = useSelector((state) => state.tasks.items);
   const dispatch = useDispatch();
+  const { data, loading, error } = useFetch();
 
-  console.log("Tasks from Redux store:", tasks);
+  useEffect(() => {
+    if (data) {
+      console.log("Fetched Data:", data);
+      const formattedTasks = data.slice(0, 10).map((task, index) => ({
+        id: task.id || `api-task-${index}`,
+        title: task.title,
+        completed: task.status === "completed",
+      }));
+      dispatch(setTasks(formattedTasks));
+    }
+  }, [data, dispatch]);
 
   const handleAddTask = (task) => {
-    dispatch(addTask(task));
+    dispatch(
+      addTask({
+        ...task,
+        id: `${Date.now()}-${Math.random()}`,
+      })
+    );
   };
 
   const handleDeleteTask = (id) => {
@@ -26,11 +48,15 @@ function TaskManager() {
     <div>
       <h1>Task Manager</h1>
       <TaskForm onAdd={handleAddTask} />
-      <TaskList
-        tasks={tasks}
-        onDelete={handleDeleteTask}
-        onToggle={handleToggleTaskCompletion}
-      />
+      {loading && <p>Loading tasks...</p>}
+      {error && <p>Error: {error}</p>}
+      {!loading && !error && (
+        <TaskList
+          tasks={tasks}
+          onDelete={handleDeleteTask}
+          onToggle={handleToggleTaskCompletion}
+        />
+      )}
     </div>
   );
 }
