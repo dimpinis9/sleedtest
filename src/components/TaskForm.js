@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import "./styles/TaskForm.css";
 
 function TaskForm({ onAdd }) {
   const [title, setTitle] = useState("");
@@ -13,8 +13,7 @@ function TaskForm({ onAdd }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {" "}
+    <form className="task-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Add Task"

@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+Task Manager Application
+A Task Manager Application built with React, designed to help users manage and organize their tasks seamlessly. This document outlines how to set up and run the project locally, libraries/tools used, architectural decisions, optimizations, limitations, and potential future improvements.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+🚀 How to Set Up and Run the Project Locally
 
-## Available Scripts
+1. Prerequisites
+   Ensure you have the following installed on your machine:
 
-In the project directory, you can run:
+Node.js (v14 or higher)
+npm or yarn (package managers) 2. Clone the Repository
 
-### `npm start`
+git clone https://github.com/dimpinis9/sleedtest.git
+cd task-manager 3. Install Dependencies
+Use your package manager of choice to install the required packages:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+npm install
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# or
 
-### `npm test`
+yarn install
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Start the Development Server
+   Run the following command to start the application:
 
-### `npm run build`
+npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# or
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+yarn start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The application will run locally at http://localhost:3000.
 
-### `npm run eject`
+Libraries and Tools Used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. React
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Used to build the UI components.
+Chosen for its flexibility, component-based architecture, and wide ecosystem.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2.  Redux
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Used for state management, ensuring a single source of truth for application state.
+Simplifies debugging and state tracking.
 
-## Learn More
+3. React DnD
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Enables drag-and-drop functionality for reordering tasks.
+Lightweight and customizable for this feature.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. CSS
 
-### Code Splitting
+Used for styling components, ensuring responsiveness and a clean design.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Architectural Decisions and Optimizations
 
-### Analyzing the Bundle Size
+1. Component-Based Architecture
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The app is modular, with reusable components, making it scalable and easy to maintain.
+Examples:
+TaskList: Manages and displays lists of tasks (e.g., Active or Completed).
+TaskForm: Handles adding new tasks.
 
-### Making a Progressive Web App
+2. State Management
+   Redux ensures a centralized and predictable state across the app.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. Drag-and-Drop
+   Integrated React DnD for efficient drag-and-drop operations while minimizing rerenders for performance.
 
-### Advanced Configuration
+4. Custom Hooks
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+useFetch: Centralized API logic for fetching and managing task data, promoting code reuse and better abstraction.
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Conclusion
+This project highlights key principles of modern React development, such as reusable components, efficient state management with Redux, and optimized interactions like drag-and-drop.

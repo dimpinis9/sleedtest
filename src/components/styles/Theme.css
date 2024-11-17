@@ -1,0 +1,85 @@
+:root {
+  --background-color: white;
+  --text-color: black;
+  --button-bg-color: #007bff;
+  --button-text-color: white;
+  --task-list-bg-color: #f9f9f9;
+}
+
+body.dark {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --button-bg-color: #0056b3;
+  --button-text-color: white;
+  --task-list-bg-color: #1e1e1e;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.task-manager {
+  padding: 20px;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.task-list {
+  background-color: var(--task-list-bg-color);
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.task-item:hover {
+  background-color: #f1f1f1;
+}
+
+.task-item.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #004494;
+}
+
+h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  text-align: center;
+}

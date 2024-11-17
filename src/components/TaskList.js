@@ -1,21 +1,25 @@
 import React from "react";
+import TaskItem from "./TaskItem";
+import { useDrop } from "react-dnd";
+import "./styles/TaskList.css";
 
-function TaskList({ tasks, onDelete, onToggle }) {
+const TaskList = ({ tasks, onDelete, onDragAndDrop }) => {
+  const [, drop] = useDrop({
+    accept: "TASK",
+    drop: (item) => {
+      if (onDragAndDrop) {
+        onDragAndDrop(item);
+      }
+    },
+  });
+
   return (
-    <ul>
+    <div className="task-list" ref={drop}>
       {tasks.map((task) => (
-        <li key={task.id}>
-          <span
-            style={{ textDecoration: task.completed ? "line-through" : "none" }}
-            onClick={() => onToggle(task.id)}
-          >
-            {task.title}
-          </span>
-          <button onClick={() => onDelete(task.id)}>Delete</button>
-        </li>
+        <TaskItem key={task.id} task={task} onDelete={onDelete} />
       ))}
-    </ul>
+    </div>
   );
-}
+};
 
 export default TaskList;
