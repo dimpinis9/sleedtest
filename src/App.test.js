@@ -1,17 +1,23 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
-import App from "./App";
+import App from "../App";
 
 const mockStore = configureStore([]);
 
-test("renders the app correctly", () => {
-  const store = mockStore({});
-  const { getByText } = render(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
+describe("App Component", () => {
+  test("renders the app correctly", () => {
+    const store = mockStore({
+      preferences: { theme: "light" },
+      tasks: [],
+    });
 
-  expect(getByText("Task Manager")).toBeInTheDocument();
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+
+    expect(screen.getByText("Task Manager")).toBeInTheDocument();
+  });
 });

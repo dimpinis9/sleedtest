@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className={`App ${theme}`}>
-      <button onClick={handleToggleTheme}>
+      <button className="theme-toggle-button" onClick={handleToggleTheme}>
         Toggle to {theme === "light" ? "dark" : "light"} Mode
       </button>
       <TaskManager />

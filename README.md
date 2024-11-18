@@ -1,7 +1,7 @@
 Task Manager Application
 A Task Manager Application built with React, designed to help users manage and organize their tasks seamlessly. This document outlines how to set up and run the project locally, libraries/tools used, architectural decisions, optimizations, limitations, and potential future improvements.
 
-🚀 How to Set Up and Run the Project Locally
+How to Set Up and Run the Project Locally
 
 1. Prerequisites
    Ensure you have the following installed on your machine:
@@ -70,5 +70,43 @@ TaskForm: Handles adding new tasks.
 
 useFetch: Centralized API logic for fetching and managing task data, promoting code reuse and better abstraction.
 
+Limitations and Future Improvements
+
+Limitations
+
+Data Persistence
+
+Tasks are currently stored only in the Redux state. This means they are lost upon a page reload.
+Limited Features
+
+The app currently does not include task prioritization or due dates.
+Basic UI
+
+Though functional, the user interface lacks advanced animations or accessibility enhancements.
+Future Improvements
+
+Persistent Storage
+
+Add local storage or connect to a backend API for saving tasks persistently.
+Enhanced UI/UX
+
+Introduce animations for smoother interactions.
+Add accessibility improvements for better usability.
+Advanced Features
+
+Task prioritization, due dates, and notifications.
+Implement drag-and-drop task prioritization across categories.
+Real-Time Updates
+
+Enable real-time synchronization using WebSockets or similar technology.
+Search Optimization
+
+Add debounce to the search functionality for smoother performance with large task lists.
+
 Conclusion
-This project highlights key principles of modern React development, such as reusable components, efficient state management with Redux, and optimized interactions like drag-and-drop.
+This project highlights key principles of modern React development, such as reusable components, efficient state management with Redux, and optimized interactions like drag-and-drop. With further improvements, it can become a robust and feature-rich task management solution.
+
+Contact
+Author: Dimitris Pinis
+Email: dimpinis9@gmail.com
+GitHub: https://github.com/dimpinis9

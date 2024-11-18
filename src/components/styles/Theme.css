@@ -67,14 +67,14 @@ button {
   padding: 5px 10px;
   border: none;
   border-radius: 3px;
-  background-color: var(--button-bg-color);
+  background-color: #f10c0c;
   color: var(--button-text-color);
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #004494;
+  background-color: #850505;
 }
 
 h2 {

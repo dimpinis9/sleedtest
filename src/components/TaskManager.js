@@ -76,8 +76,12 @@ function TaskManager() {
   }, [tasks, searchTerm]);
 
   const completedTasks = useMemo(() => {
-    return tasks.filter((task) => task.completed);
-  }, [tasks]);
+    return tasks.filter(
+      (task) =>
+        task.completed &&
+        task.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [tasks, searchTerm]);
 
   return (
     <DndProvider backend={HTML5Backend}>
