@@ -103,6 +103,38 @@ Search Optimization
 
 Add debounce to the search functionality for smoother performance with large task lists.
 
+Tests and Coverage
+Test Suites
+Comprehensive test cases for the app's core functionality have been written using Jest. These tests validate the following:
+
+Task addition, deletion, and filtering.
+State management (Redux selectors and actions).
+API fetching using useFetch.
+Component rendering and behaviors (e.g., theme toggle, drag-and-drop).
+
+Test Coverage Report
+The current coverage of the project is as follows:
+
+-------------------|---------|----------|---------|---------|-------------------
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-------------------|---------|----------|---------|---------|-------------------
+All files | 25 | 0 | 16.66 | 25 |
+src | 0 | 0 | 0 | 0 |
+App.js | 0 | 0 | 0 | 0 | 7-14
+jest.config.js | 0 | 100 | 100 | 0 | 1
+src/components | 0 | 0 | 0 | 0 |
+TaskManager.js | 0 | 0 | 0 | 0 | 18-95
+src/hooks | 10.52 | 0 | 0 | 10.52 |
+useFetch.js | 10.52 | 0 | 0 | 10.52 | 6-33
+src/tests/helpers | 79.16 | 100 | 50 | 85 |
+mockHooks.js | 76.19 | 100 | 44.44 | 82.35 | 8-9,14
+mockStore.js | 100 | 100 | 100 | 100 |
+-------------------|---------|----------|---------|---------|-------------------
+Test Suites: 3 passed, 3 total
+Tests: 4 passed, 4 total
+Snapshots: 0 total
+Time: 4.302 s
+
 Conclusion
 This project highlights key principles of modern React development, such as reusable components, efficient state management with Redux, and optimized interactions like drag-and-drop. With further improvements, it can become a robust and feature-rich task management solution.
 

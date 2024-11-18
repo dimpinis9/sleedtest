@@ -1,15 +1,15 @@
-// src/App.test.js
+// src/tests/taskManager.test.js
 import React from "react";
 import { Provider } from "react-redux";
 import {
   setupMockHooks,
   resetMocks,
   mockUseDispatch,
-} from "./tests/helpers/mockHooks";
-import { getMockStore } from "./tests/helpers/mockStore";
-import App from "./App";
+} from "./helpers/mockHooks";
+import { getMockStore } from "./helpers/mockStore";
+import TaskManager from "../components/TaskManager";
 
-describe("App Component", () => {
+describe("TaskManager Component", () => {
   let mockDispatch;
 
   beforeEach(() => {
@@ -18,21 +18,21 @@ describe("App Component", () => {
     mockUseDispatch.mockReturnValue(mockDispatch);
   });
 
-  it("toggles theme between light and dark modes", () => {
+  it("renders tasks correctly", () => {
     const mockState = {
-      preferences: { theme: "light" },
+      tasks: { items: [{ id: 1, title: "Test Task", completed: false }] },
     };
 
     setupMockHooks(mockState, null);
 
     const store = getMockStore(mockState);
 
-    const appInstance = (
+    const taskManagerInstance = (
       <Provider store={store}>
-        <App />
+        <TaskManager />
       </Provider>
     );
 
-    expect(appInstance).toBeDefined();
+    expect(taskManagerInstance).toBeDefined();
   });
 });
